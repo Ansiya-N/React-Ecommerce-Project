@@ -7,7 +7,7 @@ import Footer from './Components/Footer/Footer';
 import About  from './Pages/About';
 import Contact from "./Pages/Contact"
 import Collection from './Pages/Collection';
-
+import Login from "./Pages/Login"
 
 function App() {
  
@@ -27,6 +27,8 @@ function App() {
       <Route path="/about" element={<About/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/collection" element={<Collection/>}/>
+      <Route path="/login" element={<Login/>}/>
+
 
       
     </Routes>

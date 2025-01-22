@@ -73,7 +73,8 @@ value:"/home"
         </div>
         <div className='flex justify-between items-center   gap-x-8' >
             <img src={searchIcon}  alt="img"></img>
-            <img src={profileIcon} alt="img"></img>
+        <NavLink to="/login"><img src={profileIcon} alt="img"></img></NavLink>
+            
             <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img>
             
             
