@@ -7,7 +7,8 @@ import Footer from './Components/Footer/Footer';
 import About  from './Pages/About';
 import Contact from "./Pages/Contact"
 import Collection from './Pages/Collection';
-import Login from "./Pages/Login"
+import Login from "./Pages/Login";
+import Cart from './Pages/Cart';
 
 function App() {
  
@@ -28,7 +29,7 @@ function App() {
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/collection" element={<Collection/>}/>
       <Route path="/login" element={<Login/>}/>
-
+      <Route path="/cart" element={<Cart/>}/>
 
       
     </Routes>

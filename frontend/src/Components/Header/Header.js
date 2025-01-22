@@ -75,7 +75,7 @@ value:"/home"
             <img src={searchIcon}  alt="img"></img>
         <NavLink to="/login"><img src={profileIcon} alt="img"></img></NavLink>
             
-            <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img>
+        <NavLink to="/cart"> <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img></NavLink>
             
             
            </div>
