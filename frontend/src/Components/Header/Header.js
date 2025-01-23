@@ -1,11 +1,11 @@
-import React from 'react'
+import React  from 'react'
 import "./Header.css";
 import{NavLink} from "react-router-dom";
 import ellipseIcon from "../../Assets/Ellipse 658.png"
 import searchIcon from "../../Assets/search icon.png"
 import profileIcon from "../../Assets/profile-icon.png"
 import vectorIcon from "../../Assets/Vector.png"
-function Header() {
+function Header({setisSearch,isSearch}) {
 
 
   let header=[
@@ -36,6 +36,7 @@ value:"/home"
     
    
         ]
+         
   return (
    
 
@@ -72,7 +73,7 @@ value:"/home"
         
         </div>
         <div className='flex justify-between items-center   gap-x-8' >
-            <img src={searchIcon}  alt="img"></img>
+            <NavLink to="/collection" onClick={()=>setisSearch(true)} ><img src={searchIcon}  alt="img"></img></NavLink>
         <NavLink to="/login"><img src={profileIcon} alt="img"></img></NavLink>
             
         <NavLink to="/cart"> <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img></NavLink>

@@ -1,7 +1,9 @@
-import React from 'react'
-import borderLine from "../Assets/Rectangle 3605.png"
+import React, { useState } from 'react'
+import borderLine from "../Assets/Rectangle 3605.png";
+import searchIcon from "../Assets/search icon.png"
 import image from "../Assets/Rectangle 3608.png";
-function Collection() {
+import crossIcon from "../Assets/cross.png"
+function Collection({isSearch,setisSearch}) {
    let collections=[
       {image:image,
           heading:"Women Round Neck Cotton Top",
@@ -55,12 +57,39 @@ function Collection() {
   },
       
   ]
+  
   return (
     
 
 
 <div className='pt-10 mt-[31px] border-t-[0.5px] border-solid border-[ #ADADAD] ml-[135px] mr-[135px]   '>
+{isSearch&&(
 
+  <div className='border-b-[0.5px]   border-solid  mb-10 ' >
+    
+
+     <div className='flex items-center justify-center space-x-6 '>
+
+     <div className=' flex   border-solid rounded-full border border-[0.5px] px-4 py-2 bg-gray-50 w-[60%] max-w-[500px] mb-6 justify-between items-center'>
+
+     
+<input type="text" placeholder='Search'></input>
+<img src={searchIcon} alt="img" className='w-4  h-4' ></img>
+  
+
+  </div>
+  
+<div className='pb-5 '>
+<button onClick={()=>setisSearch (false)}><img src={crossIcon} alt="img" className='w-5 h-5 '></img></button>
+  </div>
+   
+      </div>
+    </div>
+)
+
+
+
+}
 
 <div className='flex    '>
 
