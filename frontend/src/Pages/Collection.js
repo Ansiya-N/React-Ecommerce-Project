@@ -3,6 +3,7 @@ import borderLine from "../Assets/Rectangle 3605.png";
 import searchIcon from "../Assets/search icon.png"
 import image from "../Assets/Rectangle 3608.png";
 import crossIcon from "../Assets/cross.png"
+import { NavLink } from 'react-router-dom';
 function Collection({isSearch,setisSearch}) {
    let collections=[
       {image:image,
@@ -173,7 +174,7 @@ function Collection({isSearch,setisSearch}) {
  {
  collections.map((item)=>(
 <div className='flex flex-col space-y-1.5 cursor-pointer transition ease-in-out hover:scale-105'>
-  <img src={item.image} alt="img" className=" w-[260px]"></img>
+ <NavLink to="/product"> <img    src={item.image} alt="img" className=" w-[260px]"></img></NavLink>
  <h1 className='whitespace-nowrap text-xs font-medium '> {item.heading} </h1>
  <h1 className='whitespace-nowrap text-xs font-medium'> {item.dec} </h1>
  </div>

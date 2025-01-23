@@ -9,6 +9,7 @@ import Contact from "./Pages/Contact"
 import Collection from './Pages/Collection';
 import Login from "./Pages/Login";
 import Cart from './Pages/Cart';
+import Product from './Pages/Product';
 
 function App() {
  
@@ -30,6 +31,7 @@ function App() {
       <Route path="/collection" element={<Collection isSearch={isSearch} setisSearch={setisSearch}/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/cart" element={<Cart/>}/>
+      <Route path="/product" element={<Product/>}/>
 
       
     </Routes>
