@@ -2,6 +2,7 @@ import React from 'react'
 import borderLine from "../Assets/Rectangle 3605.png";
 import product from "../Assets/Rectangle 3635.png";
 import delicon from "../Assets/bin_icon.png"
+import { NavLink } from 'react-router-dom';
 function Cart() {
   return (
     <div className='pt-10 mt-[31px] border-t-[0.5px] border-solid border-[ #ADADAD] ml-[135px] mr-[135px]  ' >
@@ -20,7 +21,7 @@ function Cart() {
          <img src={product} alt="img" ></img>
          <div className='flex   justify-between w-full '>
          <div className='flex flex-col ml-6 mt-4 '>
-             <h1 className='font-medium'style={{fontFamily:"Outfit"}}>Men Round Neck Pure Cotton T-shirt</h1>
+         <p className='font-medium'>Men Round Neck Pure Cotton T-shirt</p>
              <div className='flex mt-4'>
              <h1>$149</h1>
              <button className='ml-8 bg- #DFDFDF] w-[30px]  border border-solid border-black'>L</button>
@@ -66,8 +67,7 @@ function Cart() {
       <img src={product} alt="img" ></img>
       <div className='flex   justify-between w-full '>
       <div className='flex flex-col ml-6 mt-4 '>
-          <h1 className='font-medium text-2-xl'style={{fontFamily:"Outfit"}}>Men Round Neck Pure Cotton T-shirt</h1>
-          <div className='flex mt-4'>
+      <p className='font-medium'>Men Round Neck Pure Cotton T-shirt</p>      <div className='flex mt-4'>
           <h1>$149</h1>
           <button className='ml-8 bg- #DFDFDF] w-[30px]  border border-solid border-black'>L</button>
           </div>
@@ -138,7 +138,7 @@ function Cart() {
 <h1>$70.00</h1>
 </div>
 <div className='flex justify-end'>
-<button className='bg-black text-white px-2 py-2 mt-2 '>   PROCEED TO CHECKOUT</button>
+<NavLink to="/place-order"  ><button className='bg-black text-white px-2 py-2 mt-2 '>   PROCEED TO CHECKOUT</button></NavLink>
 
 </div>
  </div>

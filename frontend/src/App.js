@@ -10,6 +10,8 @@ import Collection from './Pages/Collection';
 import Login from "./Pages/Login";
 import Cart from './Pages/Cart';
 import Product from './Pages/Product';
+import DeliveryInfo from './Pages/DeliveryInfo';
+import Order from './Pages/Order';
 
 function App() {
  
@@ -32,6 +34,8 @@ function App() {
       <Route path="/login" element={<Login/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/product" element={<Product/>}/>
+      <Route path="/place-order" element={<DeliveryInfo/>}/>
+      <Route path="/order" element={<Order/>}/>
 
       
     </Routes>
