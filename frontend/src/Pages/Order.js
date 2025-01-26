@@ -1,7 +1,7 @@
 import React from 'react'
 import borderLine from "../Assets/Rectangle 3605.png";
 import product from "../Assets/Rectangle 3635.png";
-import delicon from "../Assets/bin_icon.png";
+
 import greenEllipse from "../Assets/Ellipse 666.png";
 
 function Order() {

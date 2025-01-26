@@ -6,9 +6,9 @@ function Banner() {
   return (
    
 
-    <div className='grid grid-cols-2 mt-5 px-[8.375rem] ' >
-      <div className='flex flex-col  justify-center  items-center  border-[0.5px] border-r-0 border-solid  border-[ #BDBDBD]'>
-      <div className='space-y-2'>
+    <div className='sm:grid sm:grid-cols-2 mt-5 max-sm:mt-[57px] px-[8.375rem] max-sm:px-[49px] ' >
+      <div className='flex flex-col max-sm:py-[99px]  justify-center  items-center  border-[0.5px] sm:border-r-0 border-solid  border-[ #BDBDBD]'>
+      <div className='space-y-2 '>
       <div className='flex items-center '>
         
         <img src={borderLine} alt="img"></img>
@@ -22,7 +22,7 @@ function Banner() {
        </div>
       </div>
       </div>
-      <div className='bg-[#FFDAD6] border-[0.5px] border-solid border-l-0 '>
+      <div className='bg-[#FFDAD6] border-[0.5px] border-solid sm:border-l-0 '>
   <img src={bannerImage} alt="Test" />
 
 </div>

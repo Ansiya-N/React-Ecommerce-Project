@@ -1,12 +1,14 @@
-import React  from 'react'
+import React,{useState}  from 'react'
 import "./Header.css";
 import{NavLink} from "react-router-dom";
 import ellipseIcon from "../../Assets/Ellipse 658.png"
 import searchIcon from "../../Assets/search icon.png"
 import profileIcon from "../../Assets/profile-icon.png"
 import vectorIcon from "../../Assets/Vector.png"
+import menuIcon from "../../Assets/hamburger.png"
 function Header({setisSearch,isSearch}) {
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   let header=[
     {
@@ -26,10 +28,17 @@ value:"/home"
        value:"/about"
     },
     {
+      id:4,
+      name:"Contact",
+     value:"/contact"
+  },
+
+
+    /*{
       id:5,
       name:"order",
      value:"/order"
-  },
+  },*/
   
   
     
@@ -40,22 +49,18 @@ value:"/home"
   return (
    
 
-    <div className='flex justify-between pt-[1.813rem] px-[8.375rem] '>
-<div className="flex items-end">
-<NavLink to="/home" className="text-4xl font-semibold ">FOREVER</NavLink> 
-
-
-<div className='flex px-1 py-1'><img className="w-3 h-3  " src={ellipseIcon} alt="img" /></div>
-
+    <div className='flex justify-between pt-[1.813rem] px-[8.375rem] max-sm:px-[49px]  '>
+<div className="flex items-end gap-x-1 whitespace-nowrap ">
+  <NavLink to="/home" className="text-4xl font-semibold">FOREVER</NavLink>
+  <img className="py-1" src={ellipseIcon} alt="img" />
 </div>
-
        
        
         
       
        
        
-       <div className='flex justify-between items-center w-96'> 
+       <div className=' justify-between items-center w-96 hidden sm:flex '> 
 
 
 
@@ -78,9 +83,21 @@ value:"/home"
             
         <NavLink to="/cart"> <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img></NavLink>
             
-            
+        <button className="sm:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <img src={menuIcon} alt="menu" className="w-6 h-6" />
+        </button>
+      
+
            </div>
-       
+           {isMenuOpen && (
+        <div className="absolute top-16 right-4 bg-white shadow-md rounded-md p-4 sm:hidden">
+          {header.map((item) => (
+            <NavLink  to={item.value} className="block py-2" onClick={() => setIsMenuOpen(false)}>
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+      )}
 
     </div>
   )

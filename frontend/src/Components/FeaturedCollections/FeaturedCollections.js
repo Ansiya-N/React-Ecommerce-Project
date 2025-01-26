@@ -67,7 +67,7 @@ const displayCollections=isBestSeller?collections.slice(0,5):collections
 
 
 
-  <div className='mt-[81px]'>
+  <div className='mt-[81px] max-sm:px-[49px]'>
 
 <div className='flex flex-col items-center space-y-2 '>
 
@@ -78,11 +78,11 @@ const displayCollections=isBestSeller?collections.slice(0,5):collections
   </h1>
 <img src={borderLine} alt="img" className=' h-0.5 flex '></img>
 </div>
- <p className='text-[#868686]'>Lorem ipsum is simply dummy text of the printing and typsettting industry.Lorem ipsem has been the.</p>
+ <p className='text-[#868686] max-sm:text-center max-sm:text-sm  '>Lorem ipsum is simply dummy text of the printing and typsettting industry.Lorem ipsem has been the.</p>
 
  </div>
 
- <div className='mt-12 grid grid-cols-5  gap-x-4 gap-y-4 mx-[160px] '>
+ <div className='mt-12 grid grid-cols-5  gap-x-4 gap-y-4 mx-[160px] max-sm:grid-cols-2 max-sm:mx-4'>
  
  {
  displayCollections.map((item)=>(
