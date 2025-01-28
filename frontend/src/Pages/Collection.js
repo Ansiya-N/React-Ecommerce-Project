@@ -1,65 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import borderLine from "../Assets/Rectangle 3605.png";
 import searchIcon from "../Assets/search icon.png"
-import image from "../Assets/Rectangle 3608.png";
+import { shopContext } from '../Context/ShopContext';
 import crossIcon from "../Assets/cross.png"
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import "../Pages/Collection.css"
+
 function Collection({isSearch,setisSearch}) {
-   let collections=[
-      {image:image,
-          heading:"Women Round Neck Cotton Top",
-  
-          dec:"$149"
-      },
-      {image:image,
-        heading:"Women Round Neck Cotton Top",
-  
-        dec:"$149"
-    },
-    {image:image,
-      heading:"Women Round Neck Cotton Top",
-  
-      dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-  {image:image,
-    heading:"Women Round Neck Cotton Top",
-  
-    dec:"$149"
-  },
-      
-  ]
-  
+
+  const {products}=useContext(shopContext)
+   
   return (
     
 
@@ -171,17 +121,15 @@ function Collection({isSearch,setisSearch}) {
 
 <div className=' grid grid-cols-4  gap-x-4 gap-y-4  '>
  
- {
- collections.map((item)=>(
-<div className='flex flex-col space-y-1.5 cursor-pointer text-gray-700 transition ease-in-out hover:scale-105'>
- <NavLink to="/product"> <img    src={item.image} alt="img" className=" w-[260px]"></img></NavLink>
- <h1 className='text-sm '> {item.heading} </h1>
- <h1 className='text-sm font-medium'> {item.dec} </h1>
- </div>
-
- 
- ))
- }
+{products.map((product) => (
+              <div key={product.id} className='flex flex-col items-center text-gray-700'>
+                <Link to={`/product/${product.id}`}>
+                  <img src={product.image} alt={product.heading} className="w-full h-auto" />
+                  <h3 className='text-sm '>{product.heading}</h3>
+                  <h1 className='text-sm font-medium'>{product.dec}</h1>
+                </Link>
+              </div>
+            ))}
  
 
 

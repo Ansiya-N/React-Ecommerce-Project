@@ -1,40 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import image1 from "../Assets/Rectangle 3635.png";
 import image2 from "../Assets/Rectangle 3634.png"
 import starIcon from "../Assets/star_icon.png"
 import borderLine from "../Assets/Rectangle 3605.png";
 import "../Pages/Product.css"
+import { shopContext } from '../Context/ShopContext';
+import { Link } from 'react-router-dom';
 function Product() {
-    let collections=[
-        {image:image1,
-            heading:"Women Round Neck Cotton Top",
-    
-            dec:"$149"
-        },
-        {image:image1,
-          heading:"Women Round Neck Cotton Top",
-    
-          dec:"$149"
-      },
-      {image:image1,
-        heading:"Women Round Neck Cotton Top",
-    
-        dec:"$149"
-    },
-    {image:image1,
-      heading:"Women Round Neck Cotton Top",
-    
-      dec:"$149"
-    },
-    {image:image1,
-      heading:"Women Round Neck Cotton Top",
-    
-      dec:"$149"
-    },
-    
-        
-    ]
-    
+ 
+   const {products}=useContext(shopContext)
   return (
     <div className='pt-10  border-t-[0.5px] border-solid border-gray-200 main' >
  <div className='flex gap-12'>
@@ -102,15 +76,19 @@ function Product() {
     </div>
     <div className='mt-12 grid grid-cols-5  gap-x-4 gap-y-4 relprodimg '>
  
-    {
-     collections.map((item)=>(
-    <div className='flex flex-col space-y-1.5 cursor-pointer transition ease-in-out hover:scale-105 text-gray-700 '>
-      <img src={item.image} alt="img" ></img>
-     <h1 className=' text-sm '> {item.heading} </h1>
-     <h1 className=' text-sm font-medium'> {item.dec} </h1>
-     </div>
-     ))
-     }
+    
+     {products.map((product) => (
+      <div key={product.id} className='flex flex-col items-center text-gray-700'>
+        <Link to={`/product/${product.id}`}>
+          <img src={product.image} alt={product.heading} className="w-full h-auto" />
+          <h3 className='text-sm '>{product.heading}</h3>
+          <h1 className='text-sm font-medium'>{product.dec}</h1>
+        </Link>
+      </div>
+    ))}
+
+
+
      </div>
      
  </div>
