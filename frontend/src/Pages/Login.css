@@ -1,0 +1,24 @@
+.main{
+    margin-top:1.938rem;
+     margin-left:8.438rem;
+      margin-right:8.438rem;
+      }
+.forminput{
+    border:1px solid ;
+    width:31.25rem;
+    height:3.375rem;
+}
+.email,.password
+{
+    border:1px solid;
+    width:31.25rem;
+    height:3.375rem;
+}
+
+.login-btn{
+    width:9.375rem;
+    height:3.125rem;
+}
+.submitform{
+    margin-top:21.875rem;
+}

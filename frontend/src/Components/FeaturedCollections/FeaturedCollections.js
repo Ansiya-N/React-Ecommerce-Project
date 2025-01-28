@@ -72,13 +72,13 @@ const displayCollections=isBestSeller?collections.slice(0,5):collections
 <div className='flex flex-col items-center space-y-2 '>
 
 <div className='flex items-center '> <h1 className='font bold text-3xl leading-10 '>
-<span className="text-[#707070]">{props.title1} </span>
-  <span className="text-[ #171717] mr-2 
+<span className="text-gray-500 font-medium">{props.title1} </span>
+  <span className="text-gray-700 font-medium mr-2 
 ">{props.title2} </span>
   </h1>
 <img src={borderLine} alt="img" className=' h-0.5 flex '></img>
 </div>
- <p className='text-[#868686] max-sm:text-center max-sm:text-sm  '>Lorem ipsum is simply dummy text of the printing and typsettting industry.Lorem ipsem has been the.</p>
+ <p className='text-gray-600 max-sm:text-center max-sm:text-sm  '>Lorem ipsum is simply dummy text of the printing and typsettting industry.Lorem ipsem has been the.</p>
 
  </div>
 
@@ -86,10 +86,10 @@ const displayCollections=isBestSeller?collections.slice(0,5):collections
  
  {
  displayCollections.map((item)=>(
-<div className='flex flex-col space-y-1.5 cursor-pointer transition ease-in-out hover:scale-105 '>
+<div className='flex flex-col space-y-1.5 text-gray-700 cursor-pointer transition ease-in-out hover:scale-105 '>
   <img src={item.image} alt="img" className=" w-[260px]"></img>
- <h1 className='whitespace-nowrap text-xs font-medium '> {item.heading} </h1>
- <h1 className='whitespace-nowrap text-xs font-medium'> {item.dec} </h1>
+ <h1 className=' text-sm '> {item.heading} </h1>
+ <h1 className='text-sm font-medium'> {item.dec} </h1>
  </div>
  ))
  }

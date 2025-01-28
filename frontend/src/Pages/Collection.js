@@ -4,6 +4,7 @@ import searchIcon from "../Assets/search icon.png"
 import image from "../Assets/Rectangle 3608.png";
 import crossIcon from "../Assets/cross.png"
 import { NavLink } from 'react-router-dom';
+import "../Pages/Collection.css"
 function Collection({isSearch,setisSearch}) {
    let collections=[
       {image:image,
@@ -63,18 +64,18 @@ function Collection({isSearch,setisSearch}) {
     
 
 
-<div className='pt-10 mt-[31px] border-t-[0.5px] border-solid border-[ #ADADAD] ml-[135px] mr-[135px]   '>
+<div className='pt-10  border-t-[0.5px] border-solid border-gray-200 main   '>
 {isSearch&&(
 
-  <div className='border-b-[0.5px]   border-solid  mb-10 ' >
+  <div className='border-b-[0.5px]  border-gray-200 border-solid  mb-10 ' >
     
 
      <div className='flex items-center justify-center space-x-6 '>
 
-     <div className=' flex   border-solid rounded-full border border-[0.5px] px-4 py-2 bg-gray-50 w-[60%] max-w-[500px] mb-6 justify-between items-center'>
+     <div className=' flex   border-solid rounded-full border-gray-400 border-[0.5px] px-4 py-2  w-[60%] max-w-[500px] mb-6 justify-between items-center'>
 
      
-<input type="text" placeholder='Search'></input>
+<input type="text " className="outline-none w-100% h-100%"placeholder='Search'></input>
 <img src={searchIcon} alt="img" className='w-4  h-4' ></img>
   
 
@@ -96,9 +97,9 @@ function Collection({isSearch,setisSearch}) {
 
 
 <div className='flex flex-col'>
-<h1 className='text-2xl leading-8 pt-4'>FILTERS</h1>
-  <div className="mt-4 w-[250px] h-[160px] border-[0.5px] pl-[23px] pt-[14px]  border-solid  border-[ #BDBDBD]">
-  <h1 >CATEGORIES</h1>
+<p className='text-xl leading-8 pt-3'>FILTERS</p>
+  <div className="mt-4 category border-[0.5px]  border-solid  border-gray-300">
+  <p className='text-sm font-medium' >CATEGORIES</p>
   <div className="mt-4 space-y-2">
       {/* Checkbox for Men */}
       <label className="flex items-center space-x-2">
@@ -119,7 +120,7 @@ function Collection({isSearch,setisSearch}) {
       </div>
   
   </div>
-  <div className="mt-4 w-[250px] h-[160px] border-[0.5px] pl-[23px] pt-[14px]  border-solid  border-[ #BDBDBD]">
+  <div className="mt-4 category border-[0.5px]   border-solid  border-gray-300">
   <h1 >TYPE</h1>
   <div className="mt-4 space-y-2">
       {/* Checkbox for Men */}
@@ -147,9 +148,8 @@ function Collection({isSearch,setisSearch}) {
 <div className='flex  items-center '>
 
    <h1 className='font bold text-3xl leading-10 '>
-<span className="text-[#707070]">ALL</span>
-  <span className="text-[ #171717] 
-"> COLLECTIONS</span>
+<span className="text-gray-500 font-medium">ALL</span>
+  <span className="text-gray-700 font-medium"> COLLECTIONS</span>
   </h1>
 <img src={borderLine} alt="img" className=' h-0.5 ml-2  '></img>
 
@@ -160,7 +160,7 @@ function Collection({isSearch,setisSearch}) {
   
   <select
    
-    className="border-2 border-gray  px-2 py-2 text-black-400 "
+    className="border-2 border-gray  px-2 py-2 text-sm"
     
   >
     <option>Sort by: Price: Low To High</option>
@@ -173,11 +173,13 @@ function Collection({isSearch,setisSearch}) {
  
  {
  collections.map((item)=>(
-<div className='flex flex-col space-y-1.5 cursor-pointer transition ease-in-out hover:scale-105'>
+<div className='flex flex-col space-y-1.5 cursor-pointer text-gray-700 transition ease-in-out hover:scale-105'>
  <NavLink to="/product"> <img    src={item.image} alt="img" className=" w-[260px]"></img></NavLink>
- <h1 className='whitespace-nowrap text-xs font-medium '> {item.heading} </h1>
- <h1 className='whitespace-nowrap text-xs font-medium'> {item.dec} </h1>
+ <h1 className='text-sm '> {item.heading} </h1>
+ <h1 className='text-sm font-medium'> {item.dec} </h1>
  </div>
+
+ 
  ))
  }
  

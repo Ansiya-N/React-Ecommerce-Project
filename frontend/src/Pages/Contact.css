@@ -1,0 +1,23 @@
+.main{
+    margin-top:1.938rem;
+      margin-left:8.438rem;
+       margin-right:8.438rem;
+}
+.subdiv{
+    margin-bottom:9.375rem;
+    padding-left:6.25rem;
+    padding-right:6.25rem;
+
+}
+.imagediv{
+    min-height:28.625rem;
+}
+.rightsection{
+    max-width:43.75rem;
+    }
+.contactbtn{
+    width:10.688rem;
+    height:3.875rem;
+    border:1px solid black
+
+}

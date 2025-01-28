@@ -1,0 +1,28 @@
+.main{
+    margin-top:1.938rem;
+      margin-left:8.438rem;
+       margin-right: 8.438rem;
+}
+.star{
+    width:0.75rem;
+    height:0.75rem
+}
+.productdesc{
+    padding-right: 7.5rem
+}
+.cartbtn{
+    width:10.625rem
+}
+.imagedet{
+    margin-bottom:5.125rem
+}
+.descbtn{
+    width:10rem
+}
+.relprod{
+   margin-top:9.375rem
+}
+.relprodimg{
+    padding-left: 1.875rem;
+    padding-right: 1.875rem
+}

@@ -1,11 +1,12 @@
 import React,{useState}  from 'react'
 import "./Header.css";
 import{NavLink} from "react-router-dom";
-import ellipseIcon from "../../Assets/Ellipse 658.png"
+
 import searchIcon from "../../Assets/search icon.png"
 import profileIcon from "../../Assets/profile-icon.png"
 import vectorIcon from "../../Assets/Vector.png"
-import menuIcon from "../../Assets/hamburger.png"
+import menuIcon from "../../Assets/hamburger.png";
+import logo from "../../Assets/logo.png";
 function Header({setisSearch,isSearch}) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,23 +14,23 @@ function Header({setisSearch,isSearch}) {
   let header=[
     {
 id:1,
-name:"Home",
+name:"HOME",
 value:"/home"
     },
 
     {
         id:2,
-        name:"Collection",
+        name:"COLLECTION",
        value:"/collection"
     },
     {
         id:3,
-        name:"About",
+        name:"ABOUT",
        value:"/about"
     },
     {
       id:4,
-      name:"Contact",
+      name:"CONTACT",
      value:"/contact"
   },
 
@@ -49,10 +50,10 @@ value:"/home"
   return (
    
 
-    <div className='flex justify-between pt-[1.813rem] px-[8.375rem] max-sm:px-[49px]  '>
-<div className="flex items-end gap-x-1 whitespace-nowrap ">
-  <NavLink to="/home" className="text-4xl font-semibold">FOREVER</NavLink>
-  <img className="py-1" src={ellipseIcon} alt="img" />
+    <div className='flex justify-between maindivheader max-sm:px-[49px]  '>
+<div >
+  <NavLink to="/home" ><img src={logo} className="w-36" alt=""></img> </NavLink>
+
 </div>
        
        
@@ -70,7 +71,7 @@ value:"/home"
 
   header.map((item)=>(
     <NavLink to={item.value} className={({ isActive }) =>
-      `font-medium leading-5 ${isActive ? "underline " : ""}`
+      `font-medium leading-5 text-gray-700 ${isActive ? "underline " : ""}`
     }> {item.name} </NavLink>
   ))
 }

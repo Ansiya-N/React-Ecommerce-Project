@@ -1,15 +1,15 @@
 import React from 'react'
 import borderLine from "../Assets/Rectangle 3605.png";
 import stripeLogo from "../Assets/stripe_logo.png"
-import ellipse from "../Assets/Ellipse 665.png";
-import greenEllipse from "../Assets/Ellipse 666.png";
-import razorpay from "../Assets/razorpay_logo.png"
+
+import razorpay from "../Assets/razorpay_logo.png";
+import "../Pages/DeliveryInfo.css"
 function DeliveryInfo() {
   return (
-    <div className='pt-10 mt-[31px] border-t-[0.5px] border-solid border-[ #ADADAD] ml-[135px] mr-[135px]  ' >
-<div className='flex items-center  mb-8 '> <h1 className='font bold text-3xl leading-10 '>
- <span className="text-[#707070]">DELIVERY </span>
-   <span className="text-[ #171717] mr-2 
+    <div className='pt-10  border-t-[0.5px] border-solid border-gray-200  delmain' >
+<div className='flex items-center  mb-8 '> <h1 className='text-2xl '>
+ <span className="text-gray-500 font-medium">DELIVERY </span>
+   <span className="text-gray-700 font-medium mr-2 
  ">INFORMATION</span>
    </h1>
  <img src={borderLine} alt="img" className=' h-0.5 flex '></img>
@@ -39,9 +39,9 @@ function DeliveryInfo() {
   <div className='flex flex-col '>
   <div className='flex  items-center  '>
     
-    <h1 className='font bold text-3xl leading-10 '>
- <span className="text-[#707070]">CART </span>
-   <span className="text-[ #171717] 
+    <h1 className=' text-2xl '>
+ <span className="text-gray-500 font-medium">CART </span>
+   <span className="text-gray-700 font-medium 
  ">TOTALS </span>
    </h1>
  <img src={borderLine} alt="img" className=' h-0.5 ml-2  '></img>
@@ -53,18 +53,18 @@ function DeliveryInfo() {
 
 
 <div className='flex  mt-5'>
-<div className='w-[400px] '>
-<div className='flex justify-between border-b-[0.5px] border-solid border-[ #ADADAD] pb-2 '>
+<div className='carttotal '>
+<div className='flex justify-between border-b-[0.5px] border-solid border-gray-200 pb-2 '>
 <h1  style={{fontFamily:"Outfit"}}>Subtotal</h1>
 <h1>$60.00</h1>
 </div>
-<div className='flex justify-between border-b-[0.5px] border-solid border-[ #ADADAD] pb-2 pt-2'>
+<div className='flex justify-between border-b-[0.5px] border-solid border-gray-200 pb-2 pt-2'>
 <h1 style={{fontFamily:"Outfit"}}>Shipping Free</h1>
 <h1>$10</h1>
 </div>
 <div className='flex justify-between  pb-2 pt-2'>
 <h1 className='font-bold'>Total</h1>
-<h1>$70.00</h1>
+<h1 className='font-bold'>$70.00</h1>
 </div>
 
  </div>
@@ -82,29 +82,29 @@ function DeliveryInfo() {
  
  
   </div>
-  <div className='flex space-x-2 mt-2'>
-  <button className='  px-2 py-2  w-[130px] border border-gray-200 border-black  font-medium'>   
-    <div className='flex items-center  justify-between cursor-pointer'>
-      
-      <img className="h-4 " alt="" src={ellipse}  ></img>
-     
-      <img className="h-5 " alt="" src={stripeLogo}  ></img>
-    </div>
-  </button>
-  <button className='  px-2 py-2  w-[150px] border border-gray-200 border-black  font-medium'>    <div className='flex items-center  justify-between cursor-pointer'>
-      
-      <img className="h-4 " alt="" src={greenEllipse}  ></img>
-     
-      <img className="h-5 " alt="" src={razorpay}  ></img>
-    </div></button>
-  <button className='  px-2 py-2  w-[170px] border border-gray-200 border-black  font-medium'>    <div className='flex items-center  justify-between cursor-pointer'>
-      
-      <img className="h-4 " alt="" src={ellipse}  ></img>
-     
-     <p className="text-gray-500 text-sm text-nowrap">CASH ON DELIVERY</p>
-    </div></button>
+  <div className="flex space-x-2 mt-2">
+  {/* Stripe Payment */}
+  <label className="px-2 py-2 w-[130px] border-[0.5px]  border-gray-300 border-solid font-medium cursor-pointer flex items-center justify-between">
+    <input type="radio" name="payment"  />
+    <div className="w-4 h-4 border border-gray-400 rounded-full "></div>
+    <img className="h-5" alt="" src={stripeLogo} />
+  </label>
 
-  </div>
+  {/* Razorpay Payment */}
+  <label className="px-2 py-2 w-[150px] border-[0.5px]  border-gray-300 border-solid font-medium cursor-pointer flex items-center justify-between">
+    <input type="radio" name="payment" />
+    <div className="w-4 h-4 border border-gray-400 rounded-full "></div>
+    <img className="h-5" alt="" src={razorpay} />
+  </label>
+
+  {/* Cash on Delivery */}
+  <label className="px-2 py-2 w-[170px] border-[0.5px]  border-gray-300 border-solid font-medium cursor-pointer flex items-center justify-between">
+    <input type="radio" name="payment" />
+    <div className="w-4 h-4 border border-gray-400 rounded-full "></div>
+    <p className="text-gray-500 text-sm whitespace-nowrap">CASH ON DELIVERY</p>
+  </label>
+</div>
+
 
   <div className='flex justify-end'>
 <button className='bg-black text-white px-8 py-2 mt-8 '>   PLACE ORDER</button>
