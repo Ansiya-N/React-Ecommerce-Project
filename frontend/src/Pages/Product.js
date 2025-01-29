@@ -2,22 +2,27 @@ import React, { useContext } from 'react'
 import image1 from "../Assets/Rectangle 3635.png";
 import image2 from "../Assets/Rectangle 3634.png"
 import starIcon from "../Assets/star_icon.png"
-import borderLine from "../Assets/Rectangle 3605.png";
+
 import "../Pages/Product.css"
 import { shopContext } from '../Context/ShopContext';
-import { Link } from 'react-router-dom';
+import FeaturedCollections from '../Components/FeaturedCollections/FeaturedCollections';
+import { useParams } from 'react-router-dom';
 function Product() {
  
-   const {products}=useContext(shopContext)
+   const {products}=useContext(shopContext);
+   const {id}=useParams();
+   const productData = products.find((item) => item.id === Number(id));
+
+   console.log(productData,"productdata")
   return (
     <div className='pt-10  border-t-[0.5px] border-solid border-gray-200 main' >
  <div className='flex gap-12'>
  <div className='flex gap-3 w-full'>
- <div><img src={image1} alt="img"></img></div>
- <div><img src={image2} alt="img" className='w-full h-auto   '></img></div>
+ <div><img src={productData.image} alt="img" className='imagesize '></img></div>
+ <div><img src={productData.image} alt="img" className='w-full h-auto   '></img></div>
  </div>
 <div className='flex flex-col imagedet'>
-<h1 className='font-medium text-2xl mt-2 '>Men Round Neck Pure Cotton T-shirt</h1>
+<h1 className='font-medium text-2xl mt-2 '>{productData.heading}</h1>
  <div className='flex  items-center gap-1 mt-2'>
     <img src={starIcon} alt="img" className='star '  ></img>
     <img src={starIcon} alt="img" className='star '   ></img>
@@ -26,7 +31,7 @@ function Product() {
     <img src={starIcon} alt="img" className='star '   ></img>
     <p className='pl-2'>(122)</p>
 </div>
-<h1 className='font-medium text-3xl mt-4'>$149</h1>
+<h1 className='font-medium text-3xl mt-4'>{productData.dec}</h1>
 <p className="mt-5 text-gray-500 productdesc" >A lightweight, usually knitted, pullover shirt, 
     close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.</p>
 <h1 className='font-medium text-4-xl text-gray mt-4'>Select Size</h1>
@@ -63,34 +68,10 @@ function Product() {
     </p>
 </div>
   </div>
-
-  <div className='flex  items-center justify-center   '>
-    
-       <h1 className='font bold text-3xl leading-10 '>
-    <span className="text-gray-500 font-medium">RELATED </span>
-      <span className="textgray-700 font-medium
-    ">PRODUCTS </span>
-      </h1>
-    <img src={borderLine} alt="img" className=' h-0.5 ml-2  '></img>
-    
-    </div>
-    <div className='mt-12 grid grid-cols-5  gap-x-4 gap-y-4 relprodimg '>
- 
-    
-     {products.map((product) => (
-      <div key={product.id} className='flex flex-col items-center text-gray-700'>
-        <Link to={`/product/${product.id}`}>
-          <img src={product.image} alt={product.heading} className="w-full h-auto" />
-          <h3 className='text-sm '>{product.heading}</h3>
-          <h1 className='text-sm font-medium'>{product.dec}</h1>
-        </Link>
-      </div>
-    ))}
-
-
-
-     </div>
-     
+  
+  <FeaturedCollections title1="RELATED" title2="PRODUCTS" productCount={5} showIntro={false} />
+   
+  
  </div>
   )
 }

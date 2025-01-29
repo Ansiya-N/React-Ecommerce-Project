@@ -13,8 +13,8 @@ function Home() {
    
    <Banner/>
    
-    <FeaturedCollections title1="LATEST" title2="COLLECTIONS" />
-    <FeaturedCollections title1="BEST" title2="SELLER" />
+    <FeaturedCollections title1="LATEST" title2="COLLECTIONS" productCount={10} showIntro={true} />
+    <FeaturedCollections title1="BEST" title2="SELLER" productCount={5} showIntro={true} />
     
     <Features/>
    <SubmitForm/>
