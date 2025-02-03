@@ -1,4 +1,4 @@
-import React,{useState}  from 'react'
+import React,{useContext, useState}  from 'react'
 import "./Header.css";
 import{NavLink} from "react-router-dom";
 
@@ -7,10 +7,18 @@ import profileIcon from "../../Assets/profile-icon.png"
 import vectorIcon from "../../Assets/Vector.png"
 import menuIcon from "../../Assets/hamburger.png";
 import logo from "../../Assets/logo.png";
+import { shopContext } from '../../Context/ShopContext';
 function Header({setisSearch,isSearch}) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const{cartItems}=useContext(shopContext)
+  // Calculate total cart count including all sizes
+   const cartCount = Object.keys(cartItems).reduce((total, productId) => {
+    return total + Object.keys(cartItems[productId]).length;
+  }, 0); 
 
+
+  
   let header=[
     {
 id:1,
@@ -46,7 +54,8 @@ value:"/home"
     
    
         ]
-         
+      
+
   return (
    
 
@@ -82,7 +91,12 @@ value:"/home"
             <NavLink to="/collection" onClick={()=>setisSearch(true)} ><img src={searchIcon}  alt="img"></img></NavLink>
         <NavLink to="/login"><img src={profileIcon} alt="img"></img></NavLink>
             
-        <NavLink to="/cart"> <img src={vectorIcon} alt="img" className='w-5 h-6 border-2 '></img></NavLink>
+        <NavLink to="/cart" className="relative">
+  <img src={vectorIcon} alt="cart" className="w-6 h-6 border-2" />
+  <span className="absolute -top-1 -right-1 bg-black text-white text-xs  px-1.5 py-0.5 rounded-full">
+    {cartCount}
+  </span>
+</NavLink>
             
         <button className="sm:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <img src={menuIcon} alt="menu" className="w-6 h-6" />

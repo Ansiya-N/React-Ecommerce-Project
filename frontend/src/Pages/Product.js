@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
-import image1 from "../Assets/Rectangle 3635.png";
-import image2 from "../Assets/Rectangle 3634.png"
+import React, { useContext, useState } from 'react'
+
 import starIcon from "../Assets/star_icon.png"
 
 import "../Pages/Product.css"
@@ -8,21 +7,23 @@ import { shopContext } from '../Context/ShopContext';
 import FeaturedCollections from '../Components/FeaturedCollections/FeaturedCollections';
 import { useParams } from 'react-router-dom';
 function Product() {
- 
-   const {products}=useContext(shopContext);
+  
+   const {products,addToCart}=useContext(shopContext);
    const {id}=useParams();
-   const productData = products.find((item) => item.id === Number(id));
+   const productData = products.find((item) => item._id === id);
+   const [sizes,setSizes]=useState()
 
-   console.log(productData,"productdata")
+   
   return (
+    <>
     <div className='pt-10  border-t-[0.5px] border-solid border-gray-200 main' >
  <div className='flex gap-12'>
  <div className='flex gap-3 w-full'>
- <div><img src={productData.image} alt="img" className='imagesize '></img></div>
- <div><img src={productData.image} alt="img" className='w-full h-auto   '></img></div>
+ <div><img src={productData?.image} alt="img" className='imagesize '></img></div>
+ <div><img src={productData?.image} alt="img" className='w-full h-auto   '></img></div>
  </div>
 <div className='flex flex-col imagedet'>
-<h1 className='font-medium text-2xl mt-2 '>{productData.heading}</h1>
+<h1 className='font-medium text-2xl mt-2 '>{productData?.name}</h1>
  <div className='flex  items-center gap-1 mt-2'>
     <img src={starIcon} alt="img" className='star '  ></img>
     <img src={starIcon} alt="img" className='star '   ></img>
@@ -31,18 +32,26 @@ function Product() {
     <img src={starIcon} alt="img" className='star '   ></img>
     <p className='pl-2'>(122)</p>
 </div>
-<h1 className='font-medium text-3xl mt-4'>{productData.dec}</h1>
+<h1 className='font-medium text-3xl mt-4'>${productData?.price}</h1>
 <p className="mt-5 text-gray-500 productdesc" >A lightweight, usually knitted, pullover shirt, 
     close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.</p>
 <h1 className='font-medium text-4-xl text-gray mt-4'>Select Size</h1>
 <div className='flex gap-4 my-2 mb-4'>
-<button className=' bg-gray-100 border py-2 px-4'>S</button>
-<button className=' bg-gray-100 border py-2 px-4'>M</button>
-<button className=' bg-gray-100 border py-2 px-4'>L</button>
-<button className=' bg-gray-100 border py-2 px-4'>XL</button>
-<button className=' bg-gray-100 border py-2 px-4'>XXL</button>
+  
+
+
+
+{productData?.sizes?.map((item)=>
+
+
+<button className={`bg-gray-100 border py-2 px-4  ${item===sizes?" border-orange-500":""}`} onClick={()=>setSizes(item)}>{item}</button>
+
+)}
 </div>
-<button className='bg-black text-white px-8 py-3 mt-2 cartbtn  '>   ADD TO CART</button>
+<button className={`bg-black text-white px-8 py-3 mt-2 cartbtn active:scale-95 active:opacity-50 `} onClick={()=>
+ 
+ addToCart(id,sizes)
+}   >   ADD TO CART</button>
 <hr className='mt-6'></hr>
 <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
 <p style={{fontFamily:"Outfit"}}>100% Original product.</p>
@@ -69,10 +78,13 @@ function Product() {
 </div>
   </div>
   
-  <FeaturedCollections title1="RELATED" title2="PRODUCTS" productCount={5} showIntro={false} />
+ 
+ 
    
   
  </div>
+ <FeaturedCollections title1="RELATED" title2="PRODUCTS" productCount={5} showIntro={false} />
+ </>
   )
 }
 

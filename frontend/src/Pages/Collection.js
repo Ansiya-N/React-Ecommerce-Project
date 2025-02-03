@@ -9,6 +9,7 @@ import "../Pages/Collection.css"
 function Collection({isSearch,setisSearch}) {
 
   const {products}=useContext(shopContext)
+ 
    
   return (
     
@@ -122,11 +123,11 @@ function Collection({isSearch,setisSearch}) {
 <div className=' grid grid-cols-4  gap-x-4 gap-y-4  '>
  
 {products.map((product) => (
-              <div key={product.id} className='flex flex-col items-center text-gray-700'>
-                <Link to={`/product/${product.id}`}>
+              <div key={product._id} className='flex flex-col space-y-1.5 items-center text-gray-700'>
+                <Link to={`/product/${product._id}`}>
                   <img src={product.image} alt={product.heading} className="w-full h-auto" />
-                  <h3 className='text-sm '>{product.heading}</h3>
-                  <h1 className='text-sm font-medium'>{product.dec}</h1>
+                  <h3 className='text-sm '>{product.name}</h3>
+                  <h1 className='text-sm font-medium'>${product.price}</h1>
                 </Link>
               </div>
             ))}
