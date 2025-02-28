@@ -93,7 +93,7 @@ value:"/home"
             
         <NavLink to="/cart" className="relative">
   <img src={vectorIcon} alt="cart" className="w-6 h-6 border-2" />
-  <span className="absolute -top-1 -right-1 bg-black text-white text-xs  px-1.5 py-0.5 rounded-full">
+  <span className="absolute top-2 right-0  bg-black text-white text-xs  px-1.5 py-0.5 ml-2 rounded-full">
     {cartCount}
   </span>
 </NavLink>
